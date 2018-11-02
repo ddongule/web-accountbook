@@ -1,0 +1,178 @@
+<div class="title">
+  <%= image_tag  ("bigtownbudget.png"), class: 'image' %>
+</div>
+
+
+<div class="center">
+  <p class="content">
+
+    4년간의 뉴스데이터를 분석해 <span class="emph">우리동네의 사회문제를 분야별로 확인</span>하고, <br>
+    지방정부의 분야별 예산 집행내역과 비교해 <span class="emph">사회문제에 따라 예산이 잘 배분되었는지를 확인</span>합니다.<br>
+    또한 우리 지역의 기초의원들을 보고, <span class="emph">지방정부와 의회의 변화에 따라 예산 분야는 어떻게 달라졌는지 확인</span>해볼 수 있습니다.<br><br>
+
+    <span class="emph2">나의 투표결과에 따라 정책이 얼마나 변화하는지를 확인</span>해볼 수 있을 것입니다.<br>
+    그럼 우리 지역의 예산이 사회문제에 따라 잘 쓰이고 있는지 확인해 보러 갈까요?<br>
+
+  </p><br><br>
+  <p class="search-town">우리 동네 검색해보기</p>
+
+  <select id="">
+    <option selected>년도 선택</option>
+    <option value="">2014년</option>
+    <option value="">2015년</option>
+    <option value="">2016년</option>
+    <option value="">2017년</option>
+  </select>
+
+
+  <select onchange="categoryChange(this)" id="sido">
+    <option value="0">시·도 선택</option>
+    <option value="1">서울</option>
+    <option value="2">부산</option>
+    <option value="3">대구</option>
+    <option value="4">인천</option>
+    <option value="5">광주</option>
+    <option value="6">대전</option>
+    <option value="7">울산</option>
+    <option value="8">경기</option>
+    <option value="9">강원</option>
+    <option value="10">충북</option>
+    <option value="11">충남</option>
+    <option value="12">전북</option>
+    <option value="13">전남</option>
+    <option value="14">경북</option>
+    <option value="15">경남</option>
+  </select>
+
+  <select id="sigungu" onChange="change(this.options[this.selectedIndex].value)">
+    <option selected>시.군.구 선택</option>
+  </select>
+
+
+</div>
+
+<div class="comen-table no-js">
+  <table class="comen">
+    <thead>
+      <tr style="display:table-row;">
+        <th style="display:none;" scope="col">시도</th>
+        <th scope="col">시.군.구</th>
+        <th scope="col">직책</th>
+        <th scope="col">시.도 의원들</th>
+        <!-- <th colspan="3"></th> -->
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @conmen.each do |conman| %>
+        <tr><td><%= conman.sido %></td></tr>
+
+          <td><%= conman.gusigun %></td>
+          <td><%= conman.election %></td>
+          <td><%= conman.names %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="images">
+    <%= image_tag  ("longissue.gif"), class: 'background' %>
+    <%= image_tag  ("longyesan.gif"), class: 'background' %>
+</div>
+<div class="images">
+    <%= image_tag  ("content.gif"), class: 'background' %>
+    <%= image_tag  ("content.gif"), class: 'background' %>
+</div>
+
+
+<script>
+  function categoryChange(e) {
+    var seoul = ['시.군.구 선택','강남구', '강동구', '강북구', '강서구(서울)', '관악구', '광진구', '구로구', '금천구', '노원구',
+       '도봉구', '동대문구', '동작구', '마포구', '서대문구', '서초구', '성동구', '성북구', '송파구',
+       '양천구', '영등포구', '용산구', '은평구', '종로구', '중구(서울)', '중랑구'];
+    var busan = ['시.군.구 선택','강서구(부산)', '금정구', '기장군', '남구(부산)', '동구', '동래구', '부산진구', '북구(부산)', '사상구', '사하구',
+       '서구(부산)', '수영구', '연제구', '영도구', '중구(부산)', '해운대구'];
+    var daegu = ['시.군.구 선택','남구(대구)', '달서구', '달성군', '동구', '북구(대구)', '서구(대구)', '수성구', '중구(대구)'];
+    var incheon = ['시.군.구 선택','강화군', '계양구', '남구(인천)', '남동구', '동구', '부평구', '서구(인천)', '연수구', '옹진군', '중구(인천)'];
+    var gwangju = ['시.군.구 선택','광산구', '남구(광주)', '동구(광주)', '북구(광주)', '서구(광주)'];
+    var daejeon = ['시.군.구 선택','대덕구', '동구(대전)', '서구(대전)', '유성구', '중구(대전)'];
+    var ulsan = ['시.군.구 선택','남구(울산)', '동구', '북구(울산)', '울주군', '중구(울산)'];
+    var gyeunggi = ['시.군.구 선택','가평군', '고양시덕양구', '고양시일산동구', '고양시일산서구', '과천시', '광명시', '광주시', '구리시',
+       '군포시', '김포시', '남양주시', '동두천시', '부천시소사구', '부천시오정구', '부천시원미구',
+       '성남시분당구', '성남시수정구', '성남시중원구', '수원시권선구', '수원시영통구', '수원시장안구',
+       '수원시팔달구', '시흥시', '안산시단원구', '안산시상록구', '안성시', '안양시동안구', '안양시만안구',
+       '양주시', '양평군', '여주시', '연천군', '오산시', '용인시기흥구', '용인시수지구', '용인시처인구',
+       '의왕시', '의정부시', '이천시', '파주시', '평택시', '포천시', '하남시', '화성시'];
+    var gangwon = ['시.군.구 선택','강릉시', '고성군(강원)', '동해시', '삼척시', '속초시', '양구군', '양양군', '영월군', '원주시',
+       '인제군', '정선군', '철원군', '춘천시', '태백시', '평창군', '홍천군', '화천군', '횡성군'];
+    var chungbuk = ['시.군.구 선택','괴산군', '단양군', '보은군', '영동군', '옥천군', '음성군', '제천시', '증평군', '진천군',
+       '청원군', '청주시상당구', '청주시흥덕구', '충주시'];
+    var chungnam = ['시.군.구 선택','계룡시', '공주시', '금산군', '논산시', '당진시', '보령시', '부여군', '서산시', '서천군',
+       '아산시', '예산군', '천안시동남구', '천안시서북구', '청양군', '태안군', '홍성군'];
+    var jeonbuk = ['시.군.구 선택','고창군', '군산시', '김제시', '남원시', '무주군', '부안군', '순창군', '완주군', '익산시',
+       '임실군', '장수군', '전주시덕진구', '전주시완산구', '정읍시', '진안군'];
+    var jeonnam = ['시.군.구 선택','강진군', '고흥군', '곡성군', '광양시', '구례군', '나주시', '담양군', '목포시', '무안군',
+       '보성군', '순천시', '신안군', '여수시', '영광군', '영암군', '완도군', '장성군', '장흥군',
+       '진도군', '함평군', '해남군', '화순군'];
+    var kyungbuk = ['시.군.구 선택','경산시', '경주시', '고령군', '구미시', '군위군', '김천시', '문경시', '봉화군', '상주시',
+       '성주군', '안동시', '영덕군', '영양군', '영주시', '영천시', '예천군', '울릉군', '울진군',
+       '의성군', '청도군', '청송군', '칠곡군', '포항시남구', '포항시북구'];
+    var kyungnam = ['시.군.구 선택','거제시', '거창군', '고성군(경남)', '김해시', '남해군', '밀양시', '사천시', '산청군', '양산시',
+       '의령군', '진주시', '창녕군', '창원시마산합포구', '창원시마산회원구', '창원시성산구', '창원시의창구',
+       '창원시진해구', '통영시', '하동군', '함안군', '함양군', '합천군'];
+
+    var target = document.getElementById("sigungu");
+
+    if(e.value == "1") var d = seoul;
+    else if(e.value == "2") var d = busan;
+    else if(e.value == "3") var d = daegu;
+    else if(e.value == "4") var d = incheon;
+    else if(e.value == "5") var d = gwangju;
+    else if(e.value == "6") var d = daejeon;
+    else if(e.value == "7") var d = ulsan;
+    else if(e.value == "8") var d = gyeunggi;
+    else if(e.value == "9") var d = gangwon;
+    else if(e.value == "10") var d = chungbuk;
+    else if(e.value == "11") var d = chungnam;
+    else if(e.value == "12") var d = jeonbuk;
+    else if(e.value == "13") var d = jeonnam;
+    else if(e.value == "14") var d = kyungbuk;
+    else if(e.value == "15") var d = kyungnam;
+
+    target.options.length = 0;
+
+    for (x in d) {
+      var opt = document.createElement("option");
+      opt.value = d[x];
+      opt.innerHTML = d[x];
+      target.appendChild(opt);
+    }
+  }
+</script>
+
+
+
+<!-- /////////////////////////////////// -->
+
+<!-- Test! -->
+
+<script>
+  $(document).ready(function($) {
+    // $('.comen-table').hide();
+    // $('.comen-table').removeClass('no-js');
+
+    $('#sigungu').change(function() {
+      $('.comen-table').show();
+
+      var selection = $(this).val();
+      var dataset = $('table').find('tr');
+      // var newselection = $(item).find("td:first-child").val().text() + $(item).find('td:first-child').text()
+      dataset.show();
+
+      dataset.filter(function(index, item) {
+        return $(item).find('td:first-child').text().indexOf(selection)=== -1;
+      }).hide();
+
+    });
+  });
+</script>

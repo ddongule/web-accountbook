@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Conmen</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sido</th>
+      <th>Gusigun</th>
+      <th>Election</th>
+      <th>Names</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @conmen.each do |conman| %>
+      <tr>
+        <td><%= conman.sido %></td>
+        <td><%= conman.gusigun %></td>
+        <td><%= conman.election %></td>
+        <td><%= conman.names %></td>
+        <!-- <td><%= link_to 'Show', conman %></td> -->
+        <!-- <td><%= link_to 'Edit', edit_conman_path(conman) %></td> -->
+        <!-- <td><%= link_to 'Destroy', conman, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<!-- <%= link_to 'New Conman', new_conman_path %> -->

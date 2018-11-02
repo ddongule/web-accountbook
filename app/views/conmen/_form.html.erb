@@ -1,0 +1,37 @@
+<%= form_with(model: conman, local: true) do |form| %>
+  <% if conman.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(conman.errors.count, "error") %> prohibited this conman from being saved:</h2>
+
+      <ul>
+      <% conman.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :sido %>
+    <%= form.text_field :sido, id: :conman_sido %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gusigun %>
+    <%= form.text_field :gusigun, id: :conman_gusigun %>
+  </div>
+
+  <div class="field">
+    <%= form.label :election %>
+    <%= form.text_field :election, id: :conman_election %>
+  </div>
+
+  <div class="field">
+    <%= form.label :names %>
+    <%= form.text_field :names, id: :conman_names %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

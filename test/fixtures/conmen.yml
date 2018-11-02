@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sido: MyString
+  gusigun: MyString
+  election: MyString
+  names: MyString
+
+two:
+  sido: MyString
+  gusigun: MyString
+  election: MyString
+  names: MyString

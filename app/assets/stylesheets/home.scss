@@ -1,0 +1,184 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	// vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body, html{
+  height:100%;
+  width:100%;
+}
+
+
+body {
+  line-height: 1.5em;
+  margin-top: 30px;
+  background: #fff0e5;
+  // margin: 20px;
+}
+.title{
+  text-align: center;
+}
+.image {
+  width: 700px;
+}
+.background{
+  background: url("bbackground.gif") no-repeat;
+  background-size: 100%;
+  width: 50%;
+  margin: 0;
+  height:100%;
+}
+.images {
+  display: flex;
+}
+.center {
+  text-align: center;
+  margin: 50px 0 70px 0;
+	margin: 40px 20px;
+}
+select {
+  background: url(https://cdn.icon-icons.com/icons2/906/PNG/512/down-arrow-2_icon-icons.com_70191.png) no-repeat 96% 62%;
+  background-size: 13%;
+  background-color: #fff;
+  width: 200px;
+  padding: .8em .5em;
+  font-family: inherit;
+  border: 1.5px solid #f1bb72;
+  border-radius: 10px;
+  -webkit-appearance: none;
+  margin: 0.5em;
+  font-size: 1rem;
+  text-align: center;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+
+.search-town{
+  margin: 30px 0;
+  font-size: 1.3rem;
+  color: #f1bb72;
+  font-weight: 550;
+}
+.content{
+  // margin: 0.3em 0;
+  line-height: 1.5em;
+  font-size: 1.0rem;
+
+}
+.emph {
+  color: #f17276;
+  font-weight: 650;
+  font-size: 1.1rem;
+}
+
+.emph2{
+  font-size:1.1rem;
+}
+.none{
+	display:none;
+}
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+
+table tr {
+	background-color: #f37174;
+  border-top: 1px solid #fff0e4;
+  border-bottom: 1px solid #fff0e4;
+  padding: .35em;
+  color: white;
+  font-size: 1.2rem;
+}
+
+table th,
+table td {
+	vertical-align: center;
+  padding: .625em;
+  text-align: center;
+}
+
+table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.no-js{
+	display: none;
+}
+
+@media only screen and (max-width: 1024px){
+  .image {
+      width: 500px;
+      height: auto;
+      background-size: 100%;
+      margin: 0 auto 10px;
+    }
+
+}
+
+@media only screen and (max-width: 768px){
+  .image {
+      width: 350px;
+      height: auto;
+      background-size: 100%;
+      margin: 0 auto 10px;
+   }
+  .background {
+		background-size: 100%;
+    width: 100%;
+  }
+}
